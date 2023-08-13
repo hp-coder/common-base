@@ -1,9 +1,9 @@
 package com.luban.common.base.model;
 
+import cn.hutool.core.lang.Assert;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
-import org.springframework.util.Assert;
 
 import java.util.List;
 

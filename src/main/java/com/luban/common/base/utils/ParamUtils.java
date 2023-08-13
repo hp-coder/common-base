@@ -1,8 +1,8 @@
 package com.luban.common.base.utils;
 
 
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
 
 import java.util.Collection;
 import java.util.Map;
@@ -45,7 +45,7 @@ public interface ParamUtils {
         }
 
         public static <T extends String> Strings<T> ofNullable(T value) {
-            return (StringUtils.hasText(value)) ? of(value) : ((Strings) empty());
+            return (StrUtil.isNotEmpty(value)) ? of(value) : ((Strings) empty());
         }
 
         public static <T extends String> Strings<T> of(T value) {
@@ -71,13 +71,13 @@ public interface ParamUtils {
         }
 
         public void ifPresent(Consumer<? super T> action) {
-            if (StringUtils.hasText(value)) {
+            if (StrUtil.isNotEmpty(value)) {
                 action.accept(value);
             }
         }
 
         public void ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction) {
-            if (StringUtils.hasText(value)) {
+            if (StrUtil.isNotEmpty(value)) {
                 action.accept(value);
             } else {
                 emptyAction.run();
@@ -85,11 +85,11 @@ public interface ParamUtils {
         }
 
         public T orElse(T other) {
-            return StringUtils.hasText(other) ? other : value;
+            return StrUtil.isNotEmpty(other) ? other : value;
         }
 
         public boolean isPresent() {
-            return StringUtils.hasText(value);
+            return StrUtil.isNotEmpty(value);
         }
 
         public T get() {
@@ -114,7 +114,7 @@ public interface ParamUtils {
         }
 
         public static <T extends Collection> Collections<T> ofNullable(T value) {
-            return (CollectionUtils.isEmpty(value)) ? ((Collections) empty()) : of(value);
+            return (CollUtil.isEmpty(value)) ? ((Collections) empty()) : of(value);
         }
 
         public static <T extends Collection> Collections<T> of(T value) {
@@ -140,13 +140,13 @@ public interface ParamUtils {
         }
 
         public void ifPresent(Consumer<? super T> action) {
-            if (!CollectionUtils.isEmpty(value)) {
+            if (CollUtil.isNotEmpty(value)) {
                 action.accept(value);
             }
         }
 
         public void ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction) {
-            if (CollectionUtils.isEmpty(value)) {
+            if (CollUtil.isEmpty(value)) {
                 emptyAction.run();
             } else {
                 action.accept(value);
@@ -154,11 +154,11 @@ public interface ParamUtils {
         }
 
         public T orElse(T other) {
-            return CollectionUtils.isEmpty(other) ? value : other;
+            return CollUtil.isEmpty(other) ? value : other;
         }
 
         public boolean isPresent() {
-            return !CollectionUtils.isEmpty(value);
+            return CollUtil.isNotEmpty(value);
         }
 
         public T get() {
@@ -184,7 +184,7 @@ public interface ParamUtils {
         }
 
         public static <T extends Map> Maps<T> ofNullable(T value) {
-            return (CollectionUtils.isEmpty(value)) ? ((Maps) empty()) : of(value);
+            return (CollUtil.isEmpty(value)) ? ((Maps) empty()) : of(value);
         }
 
         public static <T extends Map> Maps<T> of(T value) {
@@ -210,13 +210,13 @@ public interface ParamUtils {
         }
 
         public void ifPresent(Consumer<? super T> action) {
-            if (!CollectionUtils.isEmpty(value)) {
+            if (CollUtil.isNotEmpty(value)) {
                 action.accept(value);
             }
         }
 
         public void ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction) {
-            if (CollectionUtils.isEmpty(value)) {
+            if (CollUtil.isEmpty(value)) {
                 emptyAction.run();
             } else {
                 action.accept(value);
@@ -224,11 +224,11 @@ public interface ParamUtils {
         }
 
         public T orElse(T other) {
-            return CollectionUtils.isEmpty(other) ? value : other;
+            return CollUtil.isEmpty(other) ? value : other;
         }
 
         public boolean isPresent() {
-            return !CollectionUtils.isEmpty(value);
+            return CollUtil.isNotEmpty(value);
         }
 
         public T get() {
