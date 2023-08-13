@@ -1,4 +1,4 @@
-package com.luban.common.base.enums;
+package com.hp.common.base.enums;
 
 import java.util.Objects;
 

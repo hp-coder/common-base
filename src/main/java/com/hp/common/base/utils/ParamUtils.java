@@ -1,4 +1,4 @@
-package com.luban.common.base.utils;
+package com.hp.common.base.utils;
 
 
 import cn.hutool.core.collection.CollUtil;

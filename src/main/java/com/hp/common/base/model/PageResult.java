@@ -1,4 +1,4 @@
-package com.luban.common.base.model;
+package com.hp.common.base.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-package com.luban.common.base.exception;
+package com.hp.common.base.exception;
 
-import com.luban.common.base.enums.BaseEnum;
+import com.hp.common.base.enums.BaseEnum;
 
 public class BusinessException extends RuntimeException {
     private final BaseEnum msg;

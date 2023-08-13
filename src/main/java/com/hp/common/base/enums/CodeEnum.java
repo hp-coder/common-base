@@ -1,4 +1,4 @@
-package com.luban.common.base.enums;
+package com.hp.common.base.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 @Getter
 @AllArgsConstructor
-public enum CodeEnum implements com.luban.common.base.enums.BaseEnum<CodeEnum,Integer> {
+public enum CodeEnum implements com.hp.common.base.enums.BaseEnum<CodeEnum,Integer> {
     /***/
     Success(200, "操作成功"),
     Fail(500, "操作失败"),
