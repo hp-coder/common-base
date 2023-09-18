@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public abstract class AbstractContext<ENTITY> implements Context<ENTITY> {
 
-    protected Command<ENTITY> command;
+    protected Command command;
 
     protected ENTITY entity;
 

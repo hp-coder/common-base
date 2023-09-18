@@ -7,7 +7,7 @@ import com.luban.common.base.command.Command;
  */
 public interface Context<ENTITY> {
 
-    Command<ENTITY> getCommand();
+    Command getCommand();
 
     ENTITY getEntity();
 

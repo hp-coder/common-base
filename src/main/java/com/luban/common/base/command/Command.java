@@ -5,7 +5,7 @@ import com.luban.common.base.validator.ValidateErrorHandler;
 /**
  * @author hp
  */
-public interface Command<ENTITY> {
+public interface Command {
 
     default void validate(ValidateErrorHandler validateErrorHandler){}
 }
