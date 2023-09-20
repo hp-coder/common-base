@@ -1,14 +1,12 @@
 package com.luban.common.base.context;
 
-import com.luban.common.base.command.Command;
-
 /**
  * @author hp
  */
-public interface Context<ENTITY> {
+public interface Context<AGG_ROOT, COMMAND> {
 
-    Command getCommand();
+    COMMAND getCommand();
 
-    ENTITY getEntity();
+    AGG_ROOT getEntity();
 
 }
