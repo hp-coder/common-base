@@ -1,6 +1,9 @@
 package com.luban.common.base.context;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author hp
@@ -8,8 +11,13 @@ import lombok.Data;
 @Data
 public abstract class AbstractContext<AGG_ROOT, COMMAND> implements Context<AGG_ROOT, COMMAND> {
 
-    protected COMMAND command;
+    @Getter
+    @Setter(AccessLevel.NONE)
+    protected final COMMAND command;
 
     protected AGG_ROOT entity;
 
+    public AbstractContext(COMMAND command) {
+        this.command = command;
+    }
 }

@@ -20,6 +20,11 @@ public class BusinessException extends RuntimeException {
         this.msg = msg;
     }
 
+    public BusinessException(BaseEnum<?, Integer> msg, Throwable throwable) {
+        super(msg.getName(), throwable);
+        this.msg = msg;
+    }
+
     public BusinessException(BaseEnum<?, Integer> msg, Object data) {
         super(msg.getName());
         this.msg = msg;
