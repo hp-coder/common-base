@@ -21,7 +21,7 @@ public interface BaseEnum<T extends Enum<T> & BaseEnum<T, E>, E> {
     }
 
     static <T extends Enum<T> & BaseEnum<T, E>, E> T parseByName(Class<T> cls, String name) {
-        if (name == null || name.length() == 0) {
+        if (name == null || name.isEmpty()) {
             return null;
         }
         for (T t : cls.getEnumConstants()) {

@@ -19,6 +19,10 @@ public class PageRequestWrapper<T> {
     private T bean;
     private List<OrderColumn> sorts;
 
+    public static <T extends PageRequest> PageRequestWrapper<T> createWrapper(T request) {
+        return new PageRequestWrapper<>(request.getPage(), request.getSize(), request);
+    }
+
     public PageRequestWrapper(Integer page, Integer pageSize) {
         this.page = page;
         this.pageSize = pageSize;
