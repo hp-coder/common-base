@@ -46,7 +46,7 @@ public class Returns extends HashMap<String, Object> {
         return put(MSG_TAG, message);
     }
 
-    public boolean successed() {
+    public boolean succeed() {
         return !failed();
     }
 
