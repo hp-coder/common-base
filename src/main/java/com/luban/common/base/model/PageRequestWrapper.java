@@ -12,7 +12,7 @@ import java.util.List;
  * @author hp
  */
 @Data
-public class PageRequestWrapper<T> {
+public class PageRequestWrapper<T extends PageRequest> {
 
     private Integer page;
     private Integer pageSize;
@@ -23,24 +23,10 @@ public class PageRequestWrapper<T> {
         return new PageRequestWrapper<>(request.getPage(), request.getSize(), request);
     }
 
-    public PageRequestWrapper(Integer page, Integer pageSize) {
-        this.page = page;
-        this.pageSize = pageSize;
-        validate();
-    }
-
-    public PageRequestWrapper(Integer page, Integer pageSize, T bean) {
+    protected PageRequestWrapper(Integer page, Integer pageSize, T bean) {
         this.page = page;
         this.pageSize = pageSize;
         this.bean = bean;
-        validate();
-    }
-
-    public PageRequestWrapper(Integer page, Integer pageSize, T bean, List<OrderColumn> sorts) {
-        this.page = page;
-        this.pageSize = pageSize;
-        this.bean = bean;
-        this.sorts = sorts;
         validate();
     }
 

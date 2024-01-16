@@ -2,48 +2,80 @@ package com.luban.common.base.model;
 
 import cn.hutool.http.HttpStatus;
 import com.luban.common.base.enums.BaseEnum;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.HashMap;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author hp
  */
-public class Returns extends HashMap<String, Object> {
-    protected static final String CODE_TAG = "code";
-    protected static final String MSG_TAG = "message";
-    protected static final String DATA_TAG = "data";
-    protected static final String DEFAULT_SUCCESS_MSG = "操作成功";
-    protected static final String DEFAULT_FAIL_MSG = "操作失败";
+@Getter
+@Setter(AccessLevel.PRIVATE)
+public class Returns<T> {
 
-    public Returns() {
+    private Integer code;
+
+    private String message;
+
+    private T data;
+
+    public static <T> Returns<T> of(BaseEnum<?, Integer> baseEnum) {
+        return new Returns<>(baseEnum);
     }
 
-    public Returns(BaseEnum<?, Integer> baseEnum) {
-        super.put(CODE_TAG, baseEnum.getCode());
-        super.put(MSG_TAG, baseEnum.getName());
+    public static <T> Returns<T> success() {
+        return Returns.of(DefaultCode.SUCCESS);
     }
 
-    public Returns code(int code) {
-        return put(CODE_TAG, code);
+    @SuppressWarnings("unchecked")
+    public static <T> Returns<T> success(T data) {
+        return (Returns<T>) Returns.success().data(data);
     }
 
-    public Returns data(Object data) {
+    public static <T> Returns<T> fail() {
+        return Returns.of(DefaultCode.FAIL);
+    }
+
+    public static <T> Returns<T> fail(BaseEnum<? extends Enum<?>, Integer> codeEnum) {
+        return new Returns<>(codeEnum);
+    }
+
+    protected Returns() {
+    }
+
+    public Returns(BaseEnum<? extends Enum<?>, Integer> baseEnum) {
+        this.code = baseEnum.getCode();
+        this.message = baseEnum.getName();
+    }
+
+    public Returns<T> code(int code) {
+        setCode(code);
+        return this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Returns<T> data(T data) {
         if (Objects.isNull(data)) {
             return this;
         }
         if (data instanceof Long || data.getClass().isAssignableFrom(Long.class)) {
-            return put(DATA_TAG, String.valueOf(data));
+            setData((T) String.valueOf(data));
         } else {
-            return put(DATA_TAG, data);
+            setData(data);
         }
+        return this;
     }
 
-    public Returns message(String message) {
+    public Returns<T> message(String message) {
         if (Objects.isNull(message)) {
             return this;
         }
-        return put(MSG_TAG, message);
+        setMessage(message);
+        return this;
     }
 
     public boolean succeed() {
@@ -51,28 +83,25 @@ public class Returns extends HashMap<String, Object> {
     }
 
     public boolean failed() {
-        return !Objects.equals(HttpStatus.HTTP_OK, this.get(CODE_TAG));
+        return !Objects.equals(DefaultCode.SUCCESS.getCode(), getCode());
     }
 
-    public static Returns of(BaseEnum<?, Integer> baseEnum) {
-        return new Returns(baseEnum);
-    }
 
-    public static Returns success() {
-        return new Returns()
-                .code(HttpStatus.HTTP_OK)
-                .message(DEFAULT_SUCCESS_MSG);
-    }
+    /**
+     * @author hp
+     */
+    @Getter
+    @AllArgsConstructor
+    private enum DefaultCode implements BaseEnum<DefaultCode, Integer> {
+        /***/
+        SUCCESS(HttpStatus.HTTP_OK, "操作成功"),
+        FAIL(HttpStatus.HTTP_INTERNAL_ERROR, "操作失败"),
+        ;
+        private final Integer code;
+        private final String name;
 
-    public static Returns fail() {
-        return new Returns()
-                .code(HttpStatus.HTTP_INTERNAL_ERROR)
-                .message(DEFAULT_FAIL_MSG);
-    }
-
-    @Override
-    public Returns put(String key, Object value) {
-        super.put(key, value);
-        return this;
+        public static Optional<DefaultCode> of(Integer code) {
+            return Optional.ofNullable(BaseEnum.parseByCode(DefaultCode.class, code));
+        }
     }
 }
