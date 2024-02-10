@@ -1,4 +1,4 @@
-package com.luban.common.base.annotations;
+package com.hp.common.base.annotations;
 
 import java.lang.annotation.*;
 

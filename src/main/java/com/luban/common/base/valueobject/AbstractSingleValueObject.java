@@ -1,9 +1,9 @@
-package com.luban.common.base.valueobject;
+package com.hp.common.base.valueobject;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.base.Preconditions;
-import com.luban.common.base.exception.IgnoreValidationException;
+import com.hp.common.base.exception.IgnoreValidationException;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ import java.util.Objects;
  * @see JsonAutoDetect;
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.PROTECTED_AND_PUBLIC)
-public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObject<TYPE> {
+public abstract class AbstractSingleValueObject<TYPE> implements com.hp.common.base.valueobject.SingleValueObject<TYPE> {
 
     protected final TYPE value;
 

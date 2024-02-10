@@ -1,4 +1,4 @@
-package com.luban.common.base.context;
+package com.hp.common.base.context;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.Setter;
  * @author hp
  */
 @Data
-public abstract class AbstractContext<AGG_ROOT, COMMAND> implements Context<AGG_ROOT, COMMAND> {
+public abstract class AbstractContext<AGG_ROOT, COMMAND> implements com.hp.common.base.context.Context<AGG_ROOT, COMMAND> {
 
     @Getter
     @Setter(AccessLevel.NONE)

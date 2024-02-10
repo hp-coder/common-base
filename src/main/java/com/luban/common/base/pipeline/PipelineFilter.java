@@ -1,9 +1,9 @@
-package com.luban.common.base.pipeline;
+package com.hp.common.base.pipeline;
 
 /**
  * @author hp
  */
-public interface PipelineFilter<CONTEXT extends PipelineContext> {
+public interface PipelineFilter<CONTEXT extends com.hp.common.base.pipeline.PipelineContext> {
 
-    void doFilter(CONTEXT context, PipelineFilterChain<CONTEXT> filterChain);
+    void doFilter(CONTEXT context, com.hp.common.base.pipeline.PipelineFilterChain<CONTEXT> filterChain);
 }

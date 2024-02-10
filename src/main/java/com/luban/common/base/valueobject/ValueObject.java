@@ -1,4 +1,4 @@
-package com.luban.common.base.valueobject;
+package com.hp.common.base.valueobject;
 
 /**
  * @author hp

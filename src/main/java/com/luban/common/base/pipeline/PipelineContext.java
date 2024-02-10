@@ -1,4 +1,4 @@
-package com.luban.common.base.pipeline;
+package com.hp.common.base.pipeline;
 
 /**
  * @author hp

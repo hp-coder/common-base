@@ -1,8 +1,8 @@
 
-package com.luban.common.base.command;
+package com.hp.common.base.command;
 
 /**
  * @author hp
  */
-public interface CommandForUpdate extends Command {
+public interface CommandForUpdate extends com.hp.common.base.command.Command {
 }

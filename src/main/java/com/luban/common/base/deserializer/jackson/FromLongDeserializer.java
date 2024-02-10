@@ -1,4 +1,4 @@
-package com.luban.common.base.deserializer.jackson;
+package com.hp.common.base.deserializer.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

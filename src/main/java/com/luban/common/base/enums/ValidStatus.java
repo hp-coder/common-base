@@ -1,4 +1,4 @@
-package com.luban.common.base.enums;
+package com.hp.common.base.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 @Getter
 @AllArgsConstructor
-public enum ValidStatus implements BaseEnum<ValidStatus, Integer> {
+public enum ValidStatus implements com.hp.common.base.enums.BaseEnum<ValidStatus, Integer> {
 
     /***/
     VALID(1, "valid"),
@@ -20,7 +20,7 @@ public enum ValidStatus implements BaseEnum<ValidStatus, Integer> {
     private final String name;
 
     public static Optional<ValidStatus> of(Integer code) {
-        return Optional.ofNullable(BaseEnum.parseByCode(ValidStatus.class, code));
+        return Optional.ofNullable(com.hp.common.base.enums.BaseEnum.parseByCode(ValidStatus.class, code));
     }
 
     public boolean invalid() {

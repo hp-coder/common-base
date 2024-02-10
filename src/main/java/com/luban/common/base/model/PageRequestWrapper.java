@@ -1,4 +1,4 @@
-package com.luban.common.base.model;
+package com.hp.common.base.model;
 
 import cn.hutool.core.lang.Assert;
 import lombok.AllArgsConstructor;
@@ -12,14 +12,14 @@ import java.util.List;
  * @author hp
  */
 @Data
-public class PageRequestWrapper<T extends PageRequest> {
+public class PageRequestWrapper<T extends com.hp.common.base.model.PageRequest> {
 
     private Integer page;
     private Integer pageSize;
     private T bean;
     private List<OrderColumn> sorts;
 
-    public static <T extends PageRequest> PageRequestWrapper<T> createWrapper(T request) {
+    public static <T extends com.hp.common.base.model.PageRequest> PageRequestWrapper<T> createWrapper(T request) {
         return new PageRequestWrapper<>(request.getPage(), request.getSize(), request);
     }
 

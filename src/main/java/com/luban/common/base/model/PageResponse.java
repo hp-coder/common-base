@@ -1,4 +1,4 @@
-package com.luban.common.base.model;
+package com.hp.common.base.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class PageResponse<T> implements Response {
+public class PageResponse<T> implements com.hp.common.base.model.Response {
 
     private Long total;
     private Integer pageSize;
@@ -27,7 +27,7 @@ public class PageResponse<T> implements Response {
         this.pageNumber = pageNumber;
     }
 
-    public static <T> PageResponse<T> of(List<T> list, Long total, PageRequestWrapper<?> wrapper) {
+    public static <T> PageResponse<T> of(List<T> list, Long total, com.hp.common.base.model.PageRequestWrapper<?> wrapper) {
         return new PageResponse<>(list, total, wrapper.getPage(), wrapper.getPageSize());
     }
 

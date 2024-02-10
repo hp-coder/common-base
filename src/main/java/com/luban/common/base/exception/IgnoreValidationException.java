@@ -1,4 +1,4 @@
-package com.luban.common.base.exception;
+package com.hp.common.base.exception;
 
 /**
  * @author hp

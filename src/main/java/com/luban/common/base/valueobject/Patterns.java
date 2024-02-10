@@ -1,4 +1,4 @@
-package com.luban.common.base.valueobject;
+package com.hp.common.base.valueobject;
 
 import cn.hutool.core.lang.RegexPool;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.luban.common.base.valueobject.Patterns.RegEx.*;
+import static com.hp.common.base.valueobject.Patterns.RegEx.*;
 
 /**
  * @author hp

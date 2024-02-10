@@ -1,7 +1,7 @@
-package com.luban.common.base.model;
+package com.hp.common.base.model;
 
 import cn.hutool.http.HttpStatus;
-import com.luban.common.base.enums.BaseEnum;
+import com.hp.common.base.enums.BaseEnum;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

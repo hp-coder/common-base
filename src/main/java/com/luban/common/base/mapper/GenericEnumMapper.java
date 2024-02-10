@@ -1,7 +1,7 @@
-package com.luban.common.base.mapper;
+package com.hp.common.base.mapper;
 
 
-import com.luban.common.base.enums.ValidStatus;
+import com.hp.common.base.enums.ValidStatus;
 
 public class GenericEnumMapper {
 

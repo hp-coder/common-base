@@ -1,10 +1,10 @@
-package com.luban.common.base.valueobject.contact;
+package com.hp.common.base.valueobject.contact;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.common.base.Preconditions;
-import com.luban.common.base.exception.IgnoreValidationException;
-import com.luban.common.base.valueobject.AbstractStringBasedSingleValueObject;
-import com.luban.common.base.valueobject.Patterns;
+import com.hp.common.base.exception.IgnoreValidationException;
+import com.hp.common.base.valueobject.AbstractStringBasedSingleValueObject;
+import com.hp.common.base.valueobject.Patterns;
 import lombok.EqualsAndHashCode;
 
 import java.util.Optional;

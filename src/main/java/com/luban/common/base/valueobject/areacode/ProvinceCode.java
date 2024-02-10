@@ -1,16 +1,16 @@
-package com.luban.common.base.valueobject.areacode;
+package com.hp.common.base.valueobject.areacode;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.common.base.Preconditions;
-import com.luban.common.base.exception.IgnoreValidationException;
-import com.luban.common.base.valueobject.Patterns;
+import com.hp.common.base.exception.IgnoreValidationException;
+import com.hp.common.base.valueobject.Patterns;
 import lombok.EqualsAndHashCode;
 
 /**
  * @author hp
  */
 @EqualsAndHashCode(callSuper = true)
-public final class ProvinceCode extends AreaCode {
+public final class ProvinceCode extends com.hp.common.base.valueobject.areacode.AreaCode {
     private ProvinceCode(String areaCode) throws IgnoreValidationException {
         super(areaCode);
     }

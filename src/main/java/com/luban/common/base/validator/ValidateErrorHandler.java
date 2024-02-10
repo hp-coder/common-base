@@ -1,4 +1,4 @@
-package com.luban.common.base.validator;
+package com.hp.common.base.validator;
 
 /**
  * @author hp

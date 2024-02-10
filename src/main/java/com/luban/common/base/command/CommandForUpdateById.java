@@ -1,9 +1,9 @@
-package com.luban.common.base.command;
+package com.hp.common.base.command;
 
 /**
  * @author hp
  */
-public interface CommandForUpdateById<ID> extends CommandForUpdate {
+public interface CommandForUpdateById<ID> extends com.hp.common.base.command.CommandForUpdate {
 
     ID getId();
 }

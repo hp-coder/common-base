@@ -1,6 +1,6 @@
-package com.luban.common.base.command;
+package com.hp.common.base.command;
 
-import com.luban.common.base.validator.ValidateErrorHandler;
+import com.hp.common.base.validator.ValidateErrorHandler;
 
 /**
  * @author hp
