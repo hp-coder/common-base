@@ -1,9 +1,7 @@
 package com.luban.common.base.valueobject;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.common.base.Preconditions;
-import com.luban.common.base.exception.IgnoreValidationException;
+import com.luban.common.base.exception.NullValueObjectException;
 
 import java.util.Objects;
 
@@ -25,29 +23,15 @@ public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObje
         return value;
     }
 
-    protected AbstractSingleValueObject(TYPE value) throws IgnoreValidationException {
+    protected AbstractSingleValueObject(TYPE value) throws NullValueObjectException {
         if (Objects.isNull(value)) {
-            this.value = null;
-        } else {
-            this.validate(value);
-            this.value = value;
+            throw new NullValueObjectException();
         }
+        this.validate(value);
+        this.value = value;
     }
 
-    @Override
-    public void validate(TYPE value) throws IllegalArgumentException, IgnoreValidationException {
-        Preconditions.checkArgument(Objects.nonNull(value), "不接受Null值");
-    }
-
-    @JsonIgnore
-    public boolean isNull() {
-        return Objects.isNull(this.value);
-    }
-
-    @JsonIgnore
-    public boolean notNull() {
-        return !isNull();
-    }
+    protected abstract void validate(TYPE value) throws IllegalArgumentException;
 
     @Override
     public String toString() {

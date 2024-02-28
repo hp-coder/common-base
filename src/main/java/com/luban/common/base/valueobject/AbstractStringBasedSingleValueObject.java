@@ -1,8 +1,7 @@
 package com.luban.common.base.valueobject;
 
-import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
-import com.luban.common.base.exception.IgnoreValidationException;
+import com.luban.common.base.exception.NullValueObjectException;
 import lombok.EqualsAndHashCode;
 
 /**
@@ -10,22 +9,10 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 public abstract class AbstractStringBasedSingleValueObject extends AbstractSingleValueObject<String> {
-    protected AbstractStringBasedSingleValueObject(String value) throws IgnoreValidationException {
+    protected AbstractStringBasedSingleValueObject(String value) throws NullValueObjectException {
         super(value);
-    }
-
-    @Override
-    public void validate(String value) throws IgnoreValidationException {
-        Assert.isTrue(StrUtil.isNotEmpty(value), IgnoreValidationException::new);
-    }
-
-    @Override
-    public String toString() {
-        return this.value;
-    }
-
-    @Override
-    public boolean isNull() {
-        return StrUtil.isEmpty(this.value);
+        if (StrUtil.isEmpty(value)) {
+            throw new NullValueObjectException();
+        }
     }
 }
