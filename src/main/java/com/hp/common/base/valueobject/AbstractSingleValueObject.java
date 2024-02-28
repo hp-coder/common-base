@@ -1,9 +1,8 @@
 package com.hp.common.base.valueobject;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.common.base.Preconditions;
-import com.hp.common.base.exception.IgnoreValidationException;
+import com.hp.common.base.exception.NullValueObjectException;
+import jakarta.annotation.PostConstruct;
 
 import java.util.Objects;
 
@@ -16,7 +15,7 @@ import java.util.Objects;
  * @see JsonAutoDetect;
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.PROTECTED_AND_PUBLIC)
-public abstract class AbstractSingleValueObject<TYPE> implements com.hp.common.base.valueobject.SingleValueObject<TYPE> {
+public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObject<TYPE> {
 
     protected final TYPE value;
 
@@ -25,29 +24,16 @@ public abstract class AbstractSingleValueObject<TYPE> implements com.hp.common.b
         return value;
     }
 
-    protected AbstractSingleValueObject(TYPE value) throws IgnoreValidationException {
+    protected AbstractSingleValueObject(TYPE value) throws NullValueObjectException {
         if (Objects.isNull(value)) {
-            this.value = null;
+            throw new NullValueObjectException();
         } else {
-            this.validate(value);
             this.value = value;
         }
     }
 
-    @Override
-    public void validate(TYPE value) throws IllegalArgumentException, IgnoreValidationException {
-        Preconditions.checkArgument(Objects.nonNull(value), "不接受Null值");
-    }
-
-    @JsonIgnore
-    public boolean isNull() {
-        return Objects.isNull(this.value);
-    }
-
-    @JsonIgnore
-    public boolean notNull() {
-        return !isNull();
-    }
+    @PostConstruct
+    protected abstract void validate(TYPE value) throws IllegalArgumentException;
 
     @Override
     public String toString() {

@@ -1,13 +1,13 @@
 package com.hp.common.base.valueobject;
 
 
-import com.hp.common.base.exception.IgnoreValidationException;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author hp
  */
-public interface SingleValueObject<TYPE> extends com.hp.common.base.valueobject.ValueObject {
-    TYPE value();
+public interface SingleValueObject<TYPE> extends ValueObject {
 
-    void validate(TYPE value) throws IllegalArgumentException, IgnoreValidationException;
+    @JsonValue
+    TYPE value();
 }
