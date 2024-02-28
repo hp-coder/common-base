@@ -1,9 +1,9 @@
 package com.luban.common.base.model;
 
-import cn.hutool.core.lang.Assert;
+import com.google.common.base.Preconditions;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -12,33 +12,28 @@ import java.util.List;
  * @author hp
  */
 @Data
-public class PageRequestWrapper<T extends PageRequest> {
+public class PageRequestWrapper<T extends Request> {
 
     private Integer page;
-    private Integer pageSize;
-    private T bean;
+    private Integer size;
+    private T queryParams;
     private List<OrderColumn> sorts;
 
-    public static <T extends PageRequest> PageRequestWrapper<T> createWrapper(T request) {
-        return new PageRequestWrapper<>(request.getPage(), request.getSize(), request);
-    }
-
-    protected PageRequestWrapper(Integer page, Integer pageSize, T bean) {
+    public void setPage(Integer page) {
+        Preconditions.checkArgument(page != null && page > 0, "页码异常");
         this.page = page;
-        this.pageSize = pageSize;
-        this.bean = bean;
-        validate();
     }
 
-    private void validate() {
-        Assert.isTrue(page != null && page > 0, "页码异常");
-        Assert.isTrue(pageSize != null && pageSize > 0, "每页记录数异常");
+    public void setSize(Integer size) {
+        Preconditions.checkArgument(size != null && size > 0, "每页记录数异常");
+        this.size = size;
     }
 
+    @Data
+    @NoArgsConstructor
     @AllArgsConstructor
-    @Getter
     public static class OrderColumn {
-        private final String columnName;
+        private String columnName;
         private Order sortedOrder;
     }
 
@@ -56,5 +51,14 @@ public class PageRequestWrapper<T extends PageRequest> {
          */
         asc,
         desc,
+        ;
+
+        public boolean isAsc() {
+            return asc.equals(this);
+        }
+
+        public boolean isDesc() {
+            return !isAsc();
+        }
     }
 }
