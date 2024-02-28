@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class EmailAddress extends AbstractStringBasedSingleValueObject {
 
     private EmailAddress(String value) throws NullValueObjectException {

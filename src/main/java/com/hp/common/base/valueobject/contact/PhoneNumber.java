@@ -12,7 +12,7 @@ import java.util.Optional;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class PhoneNumber extends AbstractStringBasedSingleValueObject {
 
     private PhoneNumber(String phoneNumber) throws NullValueObjectException {

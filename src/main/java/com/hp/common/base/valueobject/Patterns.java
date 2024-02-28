@@ -42,7 +42,7 @@ public interface Patterns {
         String EMAIL = RegexPool.EMAIL;
 
         String PHONE = RegexPool.MOBILE;
-        String TEL = "((\\d{3,4})|\\d{3,4}-|\\s)?\\d{8}";
+        String TEL = RegexPool.TEL;
         String CEIL_PHONE = RegexPool.MOBILE;
         String FAX = "(0\\d{2}\\d{8}(\\d{1,4})?)|(0\\d{3}\\d{7,8}(\\d{1,4})?)";
         String QQ = "(?:[1-9]\\d{4,14})(?!\\d)";

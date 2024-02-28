@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class IdNumber extends AbstractStringBasedSingleValueObject {
 
     private IdNumber(String value) throws NullValueObjectException {

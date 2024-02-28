@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class ProvinceCode extends AreaCode {
     private ProvinceCode(String areaCode) throws NullValueObjectException {
         super(areaCode);

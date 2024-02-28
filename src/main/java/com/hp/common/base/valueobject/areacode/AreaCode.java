@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public class AreaCode extends AbstractStringBasedSingleValueObject {
 
     protected AreaCode(String areaCode) throws NullValueObjectException {

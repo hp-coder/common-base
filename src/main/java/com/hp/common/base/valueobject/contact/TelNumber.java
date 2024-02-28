@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class TelNumber extends AbstractStringBasedSingleValueObject {
 
     private TelNumber(String value) throws NullValueObjectException {

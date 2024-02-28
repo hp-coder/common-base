@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public final class Ip extends AbstractStringBasedSingleValueObject {
 
     private Ip(String value) throws NullValueObjectException {
