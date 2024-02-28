@@ -32,7 +32,7 @@ public interface Patterns {
         /**
          * 用接口主要是方便IDE识别
          */
-        String YEAR = "((([1][7-9])|([2][0]))[0-9]{2})";
+        String YEAR = "(((1[7-9])|([2][0]))[0-9]{2})";
         String SIX_DIGIT_CODE = "^(\\d{6})$";
         String ID_NUMBER = RegexPool.CITIZEN_ID;
         String CREDIT_CODE = RegexPool.CREDIT_CODE;
@@ -42,7 +42,7 @@ public interface Patterns {
         String EMAIL = RegexPool.EMAIL;
 
         String PHONE = RegexPool.MOBILE;
-        String TEL = "((\\d{3,4})|\\d{3,4}-|\\s)?\\d{8}";
+        String TEL = RegexPool.TEL;
         String CEIL_PHONE = RegexPool.MOBILE;
         String FAX = "(0\\d{2}\\d{8}(\\d{1,4})?)|(0\\d{3}\\d{7,8}(\\d{1,4})?)";
         String QQ = "(?:[1-9]\\d{4,14})(?!\\d)";

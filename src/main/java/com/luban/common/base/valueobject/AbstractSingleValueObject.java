@@ -2,6 +2,7 @@ package com.luban.common.base.valueobject;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.luban.common.base.exception.NullValueObjectException;
+import jakarta.annotation.PostConstruct;
 
 import java.util.Objects;
 
@@ -27,10 +28,10 @@ public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObje
         if (Objects.isNull(value)) {
             throw new NullValueObjectException();
         }
-        this.validate(value);
         this.value = value;
     }
 
+    @PostConstruct
     protected abstract void validate(TYPE value) throws IllegalArgumentException;
 
     @Override
