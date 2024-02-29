@@ -10,28 +10,28 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class PageResponse<T> implements com.hp.common.base.model.Response {
+public class PageResponse<T> implements Response {
 
     private Long total;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Integer size;
+    private Integer page;
     private List<T> list;
 
     protected PageResponse() {
     }
 
-    protected PageResponse(List<T> list, Long total, Integer pageNumber, Integer pageSize) {
+    protected PageResponse(List<T> list, Long total, Integer page, Integer size) {
         this.list = list;
         this.total = total;
-        this.pageSize = pageSize;
-        this.pageNumber = pageNumber;
+        this.size = size;
+        this.page = page;
     }
 
-    public static <T> PageResponse<T> of(List<T> list, Long total, com.hp.common.base.model.PageRequestWrapper<?> wrapper) {
-        return new PageResponse<>(list, total, wrapper.getPage(), wrapper.getPageSize());
+    public static <T> PageResponse<T> of(List<T> list, Long total, PageRequestWrapper<? extends Request> wrapper) {
+        return new PageResponse<>(list, total, wrapper.getPage(), wrapper.getSize());
     }
 
-    public static <T> PageResponse<T> of(List<T> list, Long total, Integer pageNumber, Integer pageSize) {
-        return new PageResponse<>(list, total, pageNumber, pageSize);
+    public static <T> PageResponse<T> of(List<T> list, Long total, Integer page, Integer size) {
+        return new PageResponse<>(list, total, page, size);
     }
 }

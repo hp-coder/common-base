@@ -27,9 +27,8 @@ public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObje
     protected AbstractSingleValueObject(TYPE value) throws NullValueObjectException {
         if (Objects.isNull(value)) {
             throw new NullValueObjectException();
-        } else {
-            this.value = value;
         }
+        this.value = value;
     }
 
     @PostConstruct

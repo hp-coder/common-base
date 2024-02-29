@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 public abstract class AbstractStringBasedSingleValueObject extends AbstractSingleValueObject<String> {
     protected AbstractStringBasedSingleValueObject(String value) throws NullValueObjectException {
         super(value);
-        if (StrUtil.isEmpty(value)){
+        if (StrUtil.isEmpty(value)) {
             throw new NullValueObjectException();
         }
     }
