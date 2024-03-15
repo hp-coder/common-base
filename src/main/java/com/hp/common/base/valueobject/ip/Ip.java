@@ -5,12 +5,10 @@ import com.google.common.base.Preconditions;
 import com.hp.common.base.exception.NullValueObjectException;
 import com.hp.common.base.valueobject.AbstractStringBasedSingleValueObject;
 import com.hp.common.base.valueobject.Patterns;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = false)
 public final class Ip extends AbstractStringBasedSingleValueObject {
 
     private Ip(String value) throws NullValueObjectException {

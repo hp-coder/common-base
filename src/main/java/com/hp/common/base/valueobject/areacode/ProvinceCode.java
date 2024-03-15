@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.common.base.Preconditions;
 import com.hp.common.base.exception.NullValueObjectException;
 import com.hp.common.base.valueobject.Patterns;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author hp
  */
-@EqualsAndHashCode(callSuper = false)
 public final class ProvinceCode extends AreaCode {
     private ProvinceCode(String areaCode) throws NullValueObjectException {
         super(areaCode);
