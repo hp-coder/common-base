@@ -12,5 +12,6 @@ public abstract class AbstractStringBasedSingleValueObject extends AbstractSingl
         if (StrUtil.isEmpty(value)) {
             throw new NullValueObjectException();
         }
+        validate(value);
     }
 }

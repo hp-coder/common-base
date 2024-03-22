@@ -2,7 +2,6 @@ package com.hp.common.base.valueobject;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.hp.common.base.exception.NullValueObjectException;
-import jakarta.annotation.PostConstruct;
 
 import java.util.Objects;
 
@@ -31,7 +30,6 @@ public abstract class AbstractSingleValueObject<TYPE> implements SingleValueObje
         this.value = value;
     }
 
-    @PostConstruct
     protected abstract void validate(TYPE value) throws IllegalArgumentException;
 
     @Override
